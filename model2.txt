@@ -1,0 +1,155 @@
+(base) C:\Users\kapil\Desktop\DSC-Project>python main.py
+Using TensorFlow backend.
+2020-06-06 13:44:36.706324: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-06-06 13:44:36.710782: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2020-06-06 13:45:01.441126: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-06-06 13:45:01.543078: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:01:00.0 name: GeForce GTX 1660 Ti computeCapability: 7.5
+coreClock: 1.59GHz coreCount: 24 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 268.26GiB/s
+2020-06-06 13:45:01.552315: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_101.dll'; dlerror: cudart64_101.dll not found
+2020-06-06 13:45:01.557421: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cublas64_10.dll'; dlerror: cublas64_10.dll not found
+2020-06-06 13:45:01.562926: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cufft64_10.dll'; dlerror: cufft64_10.dll not found
+2020-06-06 13:45:01.567671: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'curand64_10.dll'; dlerror: curand64_10.dll not found
+2020-06-06 13:45:01.572902: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusolver64_10.dll'; dlerror: cusolver64_10.dll not found
+2020-06-06 13:45:01.578246: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cusparse64_10.dll'; dlerror: cusparse64_10.dll not found
+2020-06-06 13:45:01.583863: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudnn64_7.dll'; dlerror: cudnn64_7.dll not found
+2020-06-06 13:45:01.588605: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1592] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2020-06-06 13:45:01.598670: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2020-06-06 13:45:01.604378: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-06-06 13:45:01.609241: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_1 (Conv2D)            (None, 46, 46, 64)        640
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 46, 46, 64)        36928
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 46, 46, 64)        256
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 23, 23, 64)        0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 23, 23, 64)        0
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 23, 23, 128)       73856
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 23, 23, 128)       512
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 23, 23, 128)       147584
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 23, 23, 128)       512
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 11, 11, 128)       0
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 11, 11, 128)       0
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 11, 11, 256)       295168
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 11, 11, 256)       1024
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 11, 11, 256)       590080
+_________________________________________________________________
+batch_normalization_5 (Batch (None, 11, 11, 256)       1024
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 5, 5, 256)         0
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 5, 5, 256)         0
+_________________________________________________________________
+conv2d_7 (Conv2D)            (None, 5, 5, 512)         1180160
+_________________________________________________________________
+batch_normalization_6 (Batch (None, 5, 5, 512)         2048
+_________________________________________________________________
+conv2d_8 (Conv2D)            (None, 5, 5, 512)         2359808
+_________________________________________________________________
+batch_normalization_7 (Batch (None, 5, 5, 512)         2048
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 2, 2, 512)         0
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 2, 2, 512)         0
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 2048)              0
+_________________________________________________________________
+dense_1 (Dense)              (None, 512)               1049088
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 512)               0
+_________________________________________________________________
+dense_2 (Dense)              (None, 256)               131328
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 256)               0
+_________________________________________________________________
+dense_3 (Dense)              (None, 128)               32896
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 128)               0
+_________________________________________________________________
+dense_4 (Dense)              (None, 7)                 903
+=================================================================
+Total params: 5,905,863
+Trainable params: 5,902,151
+Non-trainable params: 3,712
+_________________________________________________________________
+Epoch 1/30
+25120/25120 [==============================] - 656s 26ms/step - loss: 2.0026 - accuracy: 0.2182
+Epoch 2/30
+25120/25120 [==============================] - 664s 26ms/step - loss: 1.8369 - accuracy: 0.2465
+Epoch 3/30
+25120/25120 [==============================] - 2543s 101ms/step - loss: 1.8158 - accuracy: 0.2484
+Epoch 4/30
+25120/25120 [==============================] - 804s 32ms/step - loss: 1.7762 - accuracy: 0.2713
+Epoch 5/30
+25120/25120 [==============================] - 737s 29ms/step - loss: 1.7107 - accuracy: 0.3046
+Epoch 6/30
+25120/25120 [==============================] - 827s 33ms/step - loss: 1.6315 - accuracy: 0.3461
+Epoch 7/30
+25120/25120 [==============================] - 614s 24ms/step - loss: 1.5665 - accuracy: 0.3750
+Epoch 8/30
+25120/25120 [==============================] - 457s 18ms/step - loss: 1.5137 - accuracy: 0.3958
+Epoch 9/30
+25120/25120 [==============================] - 454s 18ms/step - loss: 1.4798 - accuracy: 0.4108
+Epoch 10/30
+25120/25120 [==============================] - 453s 18ms/step - loss: 1.4572 - accuracy: 0.4234
+Epoch 11/30
+25120/25120 [==============================] - 458s 18ms/step - loss: 1.4272 - accuracy: 0.4375
+Epoch 12/30
+25120/25120 [==============================] - 454s 18ms/step - loss: 1.3926 - accuracy: 0.4602
+Epoch 13/30
+25120/25120 [==============================] - 458s 18ms/step - loss: 1.3664 - accuracy: 0.4713
+Epoch 14/30
+25120/25120 [==============================] - 456s 18ms/step - loss: 1.3375 - accuracy: 0.4855
+Epoch 15/30
+25120/25120 [==============================] - 449s 18ms/step - loss: 1.3078 - accuracy: 0.4959
+Epoch 16/30
+25120/25120 [==============================] - 5901s 235ms/step - loss: 1.2825 - accuracy: 0.5101
+Epoch 17/30
+25120/25120 [==============================] - 643s 26ms/step - loss: 1.2687 - accuracy: 0.5182
+Epoch 18/30
+25120/25120 [==============================] - 659s 26ms/step - loss: 1.2444 - accuracy: 0.5305
+Epoch 19/30
+25120/25120 [==============================] - 664s 26ms/step - loss: 1.2105 - accuracy: 0.5425
+Epoch 20/30
+25120/25120 [==============================] - 671s 27ms/step - loss: 1.2004 - accuracy: 0.5481
+Epoch 21/30
+25120/25120 [==============================] - 658s 26ms/step - loss: 1.1851 - accuracy: 0.5580
+Epoch 22/30
+25120/25120 [==============================] - 1737s 69ms/step - loss: 1.1688 - accuracy: 0.5615
+Epoch 23/30
+25120/25120 [==============================] - 813s 32ms/step - loss: 1.1412 - accuracy: 0.5739
+Epoch 24/30
+25120/25120 [==============================] - 571s 23ms/step - loss: 1.1161 - accuracy: 0.5827
+Epoch 25/30
+25120/25120 [==============================] - 450s 18ms/step - loss: 1.1045 - accuracy: 0.5902
+Epoch 26/30
+25120/25120 [==============================] - 453s 18ms/step - loss: 1.0859 - accuracy: 0.5982
+Epoch 27/30
+25120/25120 [==============================] - 450s 18ms/step - loss: 1.0835 - accuracy: 0.6010
+Epoch 28/30
+25120/25120 [==============================] - 449s 18ms/step - loss: 1.0572 - accuracy: 0.6088
+Epoch 29/30
+25120/25120 [==============================] - 588s 23ms/step - loss: 1.0354 - accuracy: 0.6197
+Epoch 30/30
+25120/25120 [==============================] - 682s 27ms/step - loss: 1.0186 - accuracy: 0.6260
+
+
+
+
+

@@ -1,0 +1,34 @@
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Conv2D, MaxPooling2D, BatchNormalization
+from keras.losses import categorical_crossentropy
+from keras.optimizers import Adam
+from keras.regularizers import l2
+from keras.callbacks import ReduceLROnPlateau, TensorBoard, EarlyStopping, ModelCheckpoint
+from keras.models import load_model
+from tensorflow import keras
+from tensorflow.keras import layers
+
+
+model = keras.Sequential(
+    [
+        keras.Input(shape=input_shape),
+        layers.Conv2D(64, kernel_size=(3, 3), activation="relu"),
+        layers.Conv2D(64, kernel_size=(3, 3), activation="relu"),
+        layers.MaxPooling2D(pool_size=(2, 2)),
+        layers.Dropout(0.25),
+        layers.Conv2D(128, kernel_size=(3, 3), activation="relu"),
+        layers.Conv2D(128, kernel_size=(3, 3), activation="relu"),
+        layers.Conv2D(256, kernel_size=(3, 3), activation="relu"),
+        layers.Conv2D(256, kernel_size=(3, 3), activation="relu"),
+        layers.MaxPooling2D(pool_size=(2, 2)),
+        layers.Dropout(0.25),
+        layers.Flatten(),
+        layers.Dense(num_classes, activation="relu",kernel_regularizer=l2(0.001)),
+        layers.Dropout(0.50),
+        layers.Dense(num_classes, activation="softmax"),
+        
+        layers.Dropout(0.5),
+        
+    ]
+)
